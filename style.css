@@ -1,4 +1,13 @@
-/* Reset and Base Styles */
+/* --- CSS Variables for Colors --- */
+:root {
+    --primary-purple: #3F2B73; /* Deep purple from header */
+    --light-purple: #F3F0FB;   /* Light background for page */
+    --card-border: #C9C2E0;    /* Subtle purple for borders */
+    --white: #ffffff;
+    --text-dark: #333333;
+}
+
+/* --- Reset & Base Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,78 +15,184 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-purple);
+    color: var(--text-dark);
+    padding-bottom: 50px;
 }
 
-/* Navigation */
-.navbar {
+/* --- Header Section --- */
+.main-header {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    padding: 2rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.nav-links {
-    list-style: none;
+.main-header h1 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.main-header h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+/* --- Controls Section (Filters & Search) --- */
+.controls {
+    padding: 2rem 5%;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* Hero Section */
-.hero {
-    background-color: #f4f4f4; /* Change this to your Figma background color */
-    height: 80vh;
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid var(--primary-purple);
+    background-color: var(--white);
+    color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--primary-purple);
+    color: var(--white);
+}
+
+.search-container {
+    display: flex;
+    border: 2px solid var(--primary-purple);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--white);
+}
+
+.search-label {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.btn {
-    display: inline-block;
-    background: #007bff; /* Change to your button color */
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
+#search-input {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 0.6rem 1rem;
     font-size: 1rem;
-    margin-top: 20px;
+    outline: none;
+    min-width: 200px;
 }
 
-/* Content Grid */
-.container {
-    padding: 4rem 5%;
-    text-align: center;
-}
-
-.grid {
+/* --- Project Grid Section --- */
+.project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 5%;
 }
 
-.card {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+/* --- Project Card Styles --- */
+.project-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(63, 43, 115, 0.15); /* Subtle purple shadow */
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Makes cards equal height */
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.card-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Fills remaining space */
+    justify-content: space-between; /* Pushes keywords to bottom */
+}
+
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.keywords-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.keyword-label {
+    color: var(--primary-purple);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--primary-purple);
+    border-radius: 15px;
+}
+
+.keyword {
+    font-size: 0.9rem;
+    color: var(--primary-purple);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    background-color: #f9f8fd;
+}
+
+/* Class to hide elements during search */
+.hidden {
+    display: none !important;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    #search-input {
+        width: 100%;
+    }
 }
