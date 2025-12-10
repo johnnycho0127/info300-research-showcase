@@ -3,45 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Figma Design</title>
+    <title>Info 300 Research Projects</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">BrandName</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Welcome to My Website</h1>
-            <p>This is the subtitle text from your Figma design.</p>
-            <button class="btn">Call to Action</button>
-        </div>
+    <header class="main-header">
+        <h1>Info 300 Research Projects-AU’25</h1>
+        <h2>Course description</h2>
     </header>
 
-    <section class="container">
-        <h2>Features</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Feature 1</h3>
-                <p>Description of feature one.</p>
-            </div>
-            <div class="card">
-                <h3>Feature 2</h3>
-                <p>Description of feature two.</p>
-            </div>
-            <div class="card">
-                <h3>Feature 3</h3>
-                <p>Description of feature three.</p>
-            </div>
+    <section class="controls">
+        <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Topic 1</button>
+            <button class="filter-btn">Topic 2</button>
+            <button class="filter-btn">Topic 3</button>
+        </div>
+        <div class="search-container">
+            <label for="search-input" class="search-label">Search?</label>
+            <input type="text" id="search-input" placeholder="by keyword...">
         </div>
     </section>
 
+    <main class="project-grid" id="project-grid">
+        
+        <article class="project-card">
+            <div class="card-header">
+                <h3>Analyzing Misinformation on Social Media</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">Description: This project investigates the spread of false information across various social platforms...</p>
+                <div class="keywords-container">
+                    <span class="keyword-label">Key words</span>
+                    <span class="keyword">Misinformation</span>
+                    <span class="keyword">Social Media</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-header">
+                <h3>User Experience in Virtual Reality</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">Description: A study on usability and motion sickness in immersive VR environments...</p>
+                <div class="keywords-container">
+                    <span class="keyword-label">Key words</span>
+                    <span class="keyword">VR</span>
+                    <span class="keyword">UX Design</span>
+                    <span class="keyword">HCI</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-header">
+                <h3>AI-Powered Educational Tools</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">Description: Developing an AI tutor to personalize learning experiences for college students...</p>
+                <div class="keywords-container">
+                    <span class="keyword-label">Key words</span>
+                    <span class="keyword">Artificial Intelligence</span>
+                    <span class="keyword">Education</span>
+                </div>
+            </div>
+        </article>
+        
+        </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
