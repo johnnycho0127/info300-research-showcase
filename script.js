@@ -7,18 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
         searchTerm = searchTerm.toLowerCase();
 
         projectCards.forEach(card => {
-            // Get all the text content from the card (title, description, keywords)
+            // Get content from: Title, Team Name, Team Members, Description, Keywords
             const title = card.querySelector('h3').textContent.toLowerCase();
             const description = card.querySelector('.description').textContent.toLowerCase();
-            // Collect text from all keyword spans
+            
+            // NEW: Get team info
+            const teamInfo = card.querySelector('.team-info').textContent.toLowerCase();
+
+            // Get keywords
             const keywords = Array.from(card.querySelectorAll('.keyword'))
                                   .map(k => k.textContent.toLowerCase())
                                   .join(' ');
             
-            // Combine all text to search against
-            const combinedText = `${title} ${description} ${keywords}`;
+            // Combine all text into one string to search against
+            const combinedText = `${title} ${teamInfo} ${description} ${keywords}`;
 
-            // Check if the search term is inside the combined text
+            // Check if the search term exists in that string
             if (combinedText.includes(searchTerm)) {
                 card.classList.remove('hidden');
             } else {
@@ -27,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Listen for user input in the search box
+    // Listen for user input
     searchInput.addEventListener('input', (e) => {
         filterProjects(e.target.value);
     });
