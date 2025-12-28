@@ -30,14 +30,14 @@ body {
 .main-header h1 { font-size: 2rem; font-weight: normal; }
 .main-header h2 { font-size: 1.5rem; font-weight: normal; }
 
-/* --- Controls --- */
+/* --- Controls (UPDATED for Right Alignment) --- */
 .controls {
     padding: 2rem 5%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
     align-items: center;
+    /* justify-content: space-between;  <-- Removed to let margin-left: auto work */
 }
 .filters { display: flex; gap: 15px; flex-wrap: wrap; }
 .filter-btn {
@@ -55,13 +55,18 @@ body {
     background-color: var(--primary-purple);
     color: var(--white);
 }
+
 .search-container {
     display: flex;
     border: 2px solid var(--primary-purple);
     border-radius: 20px;
     overflow: hidden;
     background-color: var(--white);
+    
+    /* NEW: This forces the search bar to the far right */
+    margin-left: auto; 
 }
+
 .search-label {
     background-color: var(--primary-purple);
     color: var(--white);
@@ -102,7 +107,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* NEW: Image Styles */
+/* --- Image Styles (Preserved) --- */
 .card-image {
     width: 100%;
     height: 180px;
@@ -174,7 +179,7 @@ body {
     background-color: #f9f8fd;
 }
 
-/* NEW: Project Link Button */
+/* --- Project Link Button --- */
 .project-link {
     display: block;
     text-align: center;
@@ -193,6 +198,32 @@ body {
 }
 
 .hidden { display: none !important; }
+
+/* --- Footer Section (NEW) --- */
+.footer {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 5rem;
+    box-shadow: 0 -4px 10px rgba(63, 43, 115, 0.2);
+}
+
+.contributor {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.contributor::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 auto 15px auto;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
