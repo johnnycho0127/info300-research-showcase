@@ -1,19 +1,16 @@
-/* --- CSS Variables for Colors --- */
+/* --- CSS Variables --- */
 :root {
-    --primary-purple: #3F2B73; /* Deep purple from header */
-    --light-purple: #F3F0FB;   /* Light background for page */
-    --card-border: #C9C2E0;    /* Subtle purple for borders */
+    --primary-purple: #3F2B73;
+    --light-purple: #F3F0FB;
+    --card-border: #C9C2E0;
     --white: #ffffff;
     --text-dark: #333333;
+    --text-light: #666666;
+    --link-color: #0066cc;
 }
 
-/* --- Reset & Base Styles --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* --- Base Styles --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--light-purple);
@@ -21,7 +18,7 @@ body {
     padding-bottom: 50px;
 }
 
-/* --- Header Section --- */
+/* --- Header --- */
 .main-header {
     background-color: var(--primary-purple);
     color: var(--white);
@@ -30,18 +27,10 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.main-header h1 { font-size: 2rem; font-weight: normal; }
+.main-header h2 { font-size: 1.5rem; font-weight: normal; }
 
-.main-header h1 {
-    font-size: 2rem;
-    font-weight: normal;
-}
-
-.main-header h2 {
-    font-size: 1.5rem;
-    font-weight: normal;
-}
-
-/* --- Controls Section (Filters & Search) --- */
+/* --- Controls --- */
 .controls {
     padding: 2rem 5%;
     display: flex;
@@ -50,13 +39,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.filters {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
+.filters { display: flex; gap: 15px; flex-wrap: wrap; }
 .filter-btn {
     padding: 0.6rem 1.5rem;
     border-radius: 20px;
@@ -68,12 +51,10 @@ body {
     color: var(--primary-purple);
     font-weight: 600;
 }
-
 .filter-btn.active, .filter-btn:hover {
     background-color: var(--primary-purple);
     color: var(--white);
 }
-
 .search-container {
     display: flex;
     border: 2px solid var(--primary-purple);
@@ -81,7 +62,6 @@ body {
     overflow: hidden;
     background-color: var(--white);
 }
-
 .search-label {
     background-color: var(--primary-purple);
     color: var(--white);
@@ -90,7 +70,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 #search-input {
     border: none;
     padding: 0.6rem 1rem;
@@ -99,35 +78,53 @@ body {
     min-width: 200px;
 }
 
-/* --- Project Grid Section --- */
+/* --- Grid --- */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly wider cards */
     gap: 30px;
     padding: 0 5%;
 }
 
-/* --- Project Card Styles --- */
+/* --- Cards --- */
 .project-card {
     background-color: var(--white);
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(63, 43, 115, 0.15); /* Subtle purple shadow */
+    box-shadow: 0 4px 8px rgba(63, 43, 115, 0.15);
     border: 1px solid var(--card-border);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Makes cards equal height */
+    height: 100%;
+    transition: transform 0.2s;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* NEW: Image Styles */
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #eaeaea;
+    border-bottom: 1px solid var(--card-border);
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers area without stretching */
 }
 
 .card-header {
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     border-bottom: 1px solid var(--card-border);
+    background-color: #fbfaff;
 }
-
 .card-header h3 {
-    font-size: 1.25rem;
-    color: var(--text-dark);
-    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--primary-purple);
+    font-weight: 700;
     line-height: 1.4;
 }
 
@@ -135,64 +132,70 @@ body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Fills remaining space */
-    justify-content: space-between; /* Pushes keywords to bottom */
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
+.team-info {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+.team-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+.team-members { font-size: 0.9rem; color: var(--text-light); font-style: italic; line-height: 1.4; }
+
 .description {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .keywords-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
 }
-
 .keyword-label {
     color: var(--primary-purple);
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
     border: 1px solid var(--primary-purple);
-    border-radius: 15px;
+    border-radius: 12px;
 }
-
 .keyword {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--primary-purple);
-    padding: 0.4rem 0.8rem;
+    padding: 0.3rem 0.6rem;
     border: 1px solid var(--card-border);
-    border-radius: 15px;
+    border-radius: 12px;
     background-color: #f9f8fd;
 }
 
-/* Class to hide elements during search */
-.hidden {
-    display: none !important;
+/* NEW: Project Link Button */
+.project-link {
+    display: block;
+    text-align: center;
+    background-color: var(--primary-purple);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: auto; /* Pushes button to very bottom */
+    transition: background-color 0.2s;
+}
+.project-link:hover {
+    background-color: #553b9e;
 }
 
-/* --- Responsive Adjustments --- */
+.hidden { display: none !important; }
+
+/* Mobile */
 @media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .search-container {
-        width: 100%;
-    }
-    
-    #search-input {
-        width: 100%;
-    }
+    .main-header, .controls { flex-direction: column; text-align: center; gap: 1rem; }
+    .search-container, #search-input { width: 100%; }
 }
