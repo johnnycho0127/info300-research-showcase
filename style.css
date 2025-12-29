@@ -118,8 +118,11 @@ body {
 .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers area without stretching */
+    object-fit: cover; 
+    /* NEW: This forces the image to align to the top edge, preventing the top cut-off */
+    object-position: top center; 
 }
+
 
 .card-header {
     padding: 1.2rem 1.5rem;
