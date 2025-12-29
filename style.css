@@ -120,7 +120,7 @@ body {
     height: 100%;
     object-fit: cover; 
     /* NEW: This forces the image to align to the top edge, preventing the top cut-off */
-    object-position: top center; 
+    object-position: top middle; 
 }
 
 
